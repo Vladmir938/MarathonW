@@ -24,22 +24,16 @@ namespace MarathonW
         public MainWindow()
         {
             InitializeComponent();
+            mainFrame.NavigationService.Navigate(new Uri("StartWindow.xaml", UriKind.Relative));
 
         }
 
-        private void btn_Login_Click(object sender, RoutedEventArgs e)
+        private void btn_back_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
-        private void btn_about_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        private void btn_sponsor_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        private void btn_runner_Click(object sender, RoutedEventArgs e)
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
 
         }

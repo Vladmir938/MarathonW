@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace MarathonW.Runners
 {
     /// <summary>
-    /// Логика взаимодействия для RegRunner.xaml
+    /// Логика взаимодействия для RunnerMenu.xaml
     /// </summary>
-    public partial class RegRunner : Page
+    public partial class RunnerMenu : Page
     {
-        public RegRunner()
+        public RunnerMenu()
         {
             InitializeComponent();
         }
-
-        private void btn_cancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("StartWindow.xaml", UriKind.Relative));
-        }
-
     }
 }
