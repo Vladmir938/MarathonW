@@ -27,7 +27,7 @@ namespace MarathonW
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new Uri("Auth.xaml", UriKind.Relative));
         }
         private void btn_about_Click(object sender, RoutedEventArgs e)
         {
