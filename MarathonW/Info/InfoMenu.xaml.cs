@@ -39,5 +39,10 @@ namespace MarathonW.Info
         {
             this.NavigationService.Navigate(new Uri("Info/BMICalculator.xaml", UriKind.Relative));
         }
+
+        private void btn_listfund_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Info/Organisations.xaml", UriKind.Relative));
+        }
     }
 }

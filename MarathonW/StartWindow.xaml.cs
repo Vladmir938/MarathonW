@@ -41,5 +41,10 @@ namespace MarathonW
         {
             this.NavigationService.Navigate(new Uri("Runners/RegRunner.xaml", UriKind.Relative));
         }
+
+        private void btn_admin_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Admin/AdminMenu.xaml", UriKind.Relative));
+        }
     }
 }

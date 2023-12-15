@@ -34,7 +34,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Name="btn_marathon" Content="Marathon Skills 2016" Margin="10,10,4,0"  Background="#55c49e" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="22" Height="80" VerticalAlignment="Top" FontStyle="Italic" Grid.Row="3"  Grid.Column="1">
+        <Button Name="btn_marathon" Content="Marathon Skills 2023" Margin="10,10,4,0"  Background="#55c49e" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="22" Height="80" VerticalAlignment="Top" FontStyle="Italic" Grid.Row="3"  Grid.Column="1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="14"/>
@@ -48,7 +48,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btn_listfund" Content="Благотворительные &#xA;организации" Margin="10,10,4,0"  Background="#55c49e" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="22" Height="80" VerticalAlignment="Top" FontStyle="Italic" Grid.Row="4"  Grid.Column="3">
+        <Button x:Name="btn_listfund" Content="Благотворительные &#xA;организации" Margin="10,10,4,0"  Background="#55c49e" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="22" Height="80" VerticalAlignment="Top" FontStyle="Italic" Grid.Row="4"  Grid.Column="3" Click="btn_listfund_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="14"/>
@@ -62,7 +62,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="198,15,0,0" TextWrapping="Wrap" Text="Подробная информация" VerticalAlignment="Top" FontSize="22" Foreground="White" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" TextAlignment="Center" FontWeight="Bold" Height="29" Width="269"/>
+        <TextBlock HorizontalAlignment="Left" Margin="198,15,0,0" TextWrapping="Wrap" Text="Подробная информация" VerticalAlignment="Top" FontSize="21" Foreground="White" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" TextAlignment="Center" FontWeight="Bold" Height="29" Width="269"/>
         <Button x:Name="btn_bmrcalc" Content="BMR калькулятор" Margin="10,10,4,0"  Background="#55c49e" BorderBrush="White" Foreground="White" FontFamily="Arial" FontSize="22" Height="80" VerticalAlignment="Top" FontStyle="Italic" Grid.Row="5" Grid.Column="3" Click="btn_bmrcalc_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">

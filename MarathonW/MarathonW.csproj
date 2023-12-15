@@ -8,13 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\admin.png" />
     <None Remove="Icons\female-icon.png" />
     <None Remove="Icons\logoskills.ico" />
     <None Remove="Icons\male-icon.png" />
+    <None Remove="Images\OrganisationsLogo\brilliant.jpg" />
+    <None Remove="Images\OrganisationsLogo\brilliant1.jpg" />
+    <None Remove="Images\OrganisationsLogo\empireflower.jpg" />
+    <None Remove="Images\OrganisationsLogo\gastro.jpg" />
+    <None Remove="Images\OrganisationsLogo\techno.jpg" />
     <None Remove="logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Icons\admin.png" />
     <Resource Include="Icons\male-icon.png" />
   </ItemGroup>
 
@@ -29,6 +36,10 @@
   <ItemGroup>
     <Resource Include="Icons\logoskills.ico" />
     <Resource Include="Icons\female-icon.png" />
+    <Resource Include="Images\OrganisationsLogo\brilliant1.jpg" />
+    <Resource Include="Images\OrganisationsLogo\empireflower.jpg" />
+    <Resource Include="Images\OrganisationsLogo\gastro.jpg" />
+    <Resource Include="Images\OrganisationsLogo\techno.jpg" />
     <Resource Include="logo.ico" />
   </ItemGroup>
 
