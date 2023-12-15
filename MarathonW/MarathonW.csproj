@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Icons\admin.png" />
+    <None Remove="Icons\change.png" />
     <None Remove="Icons\female-icon.png" />
     <None Remove="Icons\logoskills.ico" />
     <None Remove="Icons\male-icon.png" />
@@ -22,6 +23,7 @@
 
   <ItemGroup>
     <Resource Include="Icons\admin.png" />
+    <Resource Include="Icons\change.png" />
     <Resource Include="Icons\male-icon.png" />
   </ItemGroup>
 

@@ -29,5 +29,10 @@ namespace MarathonW.Admin
         {
             this.NavigationService.Navigate(new Uri("Admin/VolontMenu.xaml", UriKind.Relative));
         }
+
+        private void btnFund_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Admin/OrganisationsAdminMenu.xaml", UriKind.Relative));
+        }
     }
 }

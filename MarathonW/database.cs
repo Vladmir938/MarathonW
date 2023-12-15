@@ -84,6 +84,66 @@ namespace MarathonW
             return volunteers;
         }
 
+        public Organization GetOrganizationById(int organizationId)
+        {
+            Organization organization = null;
+
+            try
+            {
+                OpenConnection();
+
+                string query = $"SELECT Logo, Name, Description FROM Organisations WHERE OrganizationId = {organizationId}";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    organization = new Organization
+                    {
+                        Logo = reader["Logo"].ToString(),
+                        Name = reader["Name"].ToString(),
+                        Description = reader["Description"].ToString(),
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+            }
+            finally
+            {
+                CloseConnection();
+            }
+
+            return organization;
+        }
+
+        public void UpdateOrganization(int organizationId, string logo, string name, string description)
+        {
+            try
+            {
+                OpenConnection();
+
+                string query = "UPDATE Organisations SET Logo = @Logo, Name = @Name, Description = @Description WHERE ID_Organisations = @OrganizationId";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("@OrganizationId", organizationId);
+                sqlCommand.Parameters.AddWithValue("@Logo", logo);
+                sqlCommand.Parameters.AddWithValue("@Name", name);
+                sqlCommand.Parameters.AddWithValue("@Description", description);
+
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+
         public SqlConnection getConnection()
         {
             return sqlConnection;
