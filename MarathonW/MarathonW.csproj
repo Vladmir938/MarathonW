@@ -8,8 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\female-icon.png" />
     <None Remove="Icons\logoskills.ico" />
+    <None Remove="Icons\male-icon.png" />
     <None Remove="logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\male-icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +28,7 @@
 
   <ItemGroup>
     <Resource Include="Icons\logoskills.ico" />
+    <Resource Include="Icons\female-icon.png" />
     <Resource Include="logo.ico" />
   </ItemGroup>
 

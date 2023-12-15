@@ -31,7 +31,7 @@ namespace MarathonW
         }
         private void btn_about_Click(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new Uri("Info/InfoMenu.xaml", UriKind.Relative));
         }
         private void btn_sponsor_Click(object sender, RoutedEventArgs e)
         {

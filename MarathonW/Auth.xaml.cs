@@ -1,26 +1,20 @@
-﻿using MarathonW.Runners;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MarathonW
 {
     public partial class Auth : Page
     {
-        DataBase dataBase = new DataBase(); // Предполагается, что у вас есть класс DataBase с методами для работы с базой данных.
+        DataBase dataBase = new DataBase();
+
+        private int loginAttempts = 0;
+        private DateTime blockEndTime;
+        private bool isBlocked = false;
+        private int maxBlockTime = 180; // Максимальное время блокировки в секундах
+        private int blockTimeIncrease = 15; // Увеличение времени блокировки в секундах
+        private int attemptsPerIncrease = 3; // Количество попыток перед увеличением времени блокировки
 
         public Auth()
         {
@@ -39,15 +33,22 @@ namespace MarathonW
                 string email = txb_email.Text;
                 string password = txb_pass.Password;
 
-                // Проверка наличия введенного email и пароля в базе данных
+                if (IsBlocked())
+                {
+                    MessageBox.Show($"Слишком много неудачных попыток. Попробуйте снова через {GetRemainingBlockTime()} секунд.", "Блокировка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
                 if (IsCredentialsValid(email, password))
                 {
                     MessageBox.Show("Вы успешно вошли в систему!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    ResetAttempts();
                     // Здесь вы можете перенаправить пользователя на другую страницу или выполнить другие действия после входа.
                 }
                 else
                 {
                     MessageBox.Show("Неверный email или пароль.", "Ошибка входа", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    IncrementAttempts();
                 }
             }
             catch (Exception ex)
@@ -81,6 +82,42 @@ namespace MarathonW
         private void txb_email_GotFocus(object sender, RoutedEventArgs e)
         {
             txb_email.Text = "";
+        }
+
+        private void IncrementAttempts()
+        {
+            loginAttempts++;
+
+            if (loginAttempts % attemptsPerIncrease == 0)
+            {
+                int currentBlockTime = loginAttempts / attemptsPerIncrease * blockTimeIncrease;
+
+                // Проверка на достижение максимального лимита блокировки
+                if (currentBlockTime > maxBlockTime)
+                {
+                    currentBlockTime = maxBlockTime;
+                }
+
+                blockEndTime = DateTime.Now.AddSeconds(currentBlockTime);
+                isBlocked = true;
+            }
+        }
+
+        private bool IsBlocked()
+        {
+            return isBlocked && DateTime.Now < blockEndTime;
+        }
+
+        private int GetRemainingBlockTime()
+        {
+            return (int)Math.Ceiling((blockEndTime - DateTime.Now).TotalSeconds);
+        }
+
+        private void ResetAttempts()
+        {
+            loginAttempts = 0;
+            blockEndTime = DateTime.MinValue;
+            isBlocked = false;
         }
     }
 }
